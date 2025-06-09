@@ -9,7 +9,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
+    <>
       <Navbar />
       <Hero />
       <About />
@@ -18,6 +18,6 @@ export default function Home() {
       <Projects />
       <Contact />
       <ScrollToTop />
-    </main>
+    </>
   );
 }

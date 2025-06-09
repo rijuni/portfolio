@@ -4,6 +4,7 @@ import "./globals.css";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,10 +22,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
-        <Navbar />
-        {children}
+    <html lang="en" className="h-full">
+      <body className={`${inter.variable} font-sans antialiased h-full flex flex-col`}>
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </div>
         <ToastContainer
           position="top-right"
           autoClose={5000}
