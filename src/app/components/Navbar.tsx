@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -60,7 +60,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link 
             href="/" 
-            className="text-2xl font-bold text-primary hover:text-primary/80 transition-colors duration-300"
+            className="text-xl sm:text-2xl font-bold text-primary hover:text-primary/80 transition-colors duration-300"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -111,7 +111,8 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-muted-foreground hover:text-primary transition-colors"
+            className="md:hidden text-muted-foreground hover:text-primary transition-colors p-2"
+            aria-label="Toggle menu"
           >
             <svg
               className="h-6 w-6"
@@ -133,66 +134,70 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-background/95 backdrop-blur-md border-b border-border"
-        >
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <MobileNavLink 
-              href="#about" 
-              isActive={activeSection === 'about'}
-              onClick={() => {
-                scrollToSection('about');
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              About
-            </MobileNavLink>
-            <MobileNavLink 
-              href="#skills" 
-              isActive={activeSection === 'skills'}
-              onClick={() => {
-                scrollToSection('skills');
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              Skills
-            </MobileNavLink>
-            <MobileNavLink 
-              href="#services" 
-              isActive={activeSection === 'services'}
-              onClick={() => {
-                scrollToSection('services');
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              Services
-            </MobileNavLink>
-            <MobileNavLink 
-              href="#projects" 
-              isActive={activeSection === 'projects'}
-              onClick={() => {
-                scrollToSection('projects');
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              Projects
-            </MobileNavLink>
-            <MobileNavLink 
-              href="#contact" 
-              isActive={activeSection === 'contact'}
-              onClick={() => {
-                scrollToSection('contact');
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              Contact
-            </MobileNavLink>
-          </div>
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-background/95 backdrop-blur-md border-b border-border overflow-hidden"
+          >
+            <div className="px-4 pt-2 pb-3 space-y-1">
+              <MobileNavLink 
+                href="#about" 
+                isActive={activeSection === 'about'}
+                onClick={() => {
+                  scrollToSection('about');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                About
+              </MobileNavLink>
+              <MobileNavLink 
+                href="#skills" 
+                isActive={activeSection === 'skills'}
+                onClick={() => {
+                  scrollToSection('skills');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Skills
+              </MobileNavLink>
+              <MobileNavLink 
+                href="#services" 
+                isActive={activeSection === 'services'}
+                onClick={() => {
+                  scrollToSection('services');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Services
+              </MobileNavLink>
+              <MobileNavLink 
+                href="#projects" 
+                isActive={activeSection === 'projects'}
+                onClick={() => {
+                  scrollToSection('projects');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Projects
+              </MobileNavLink>
+              <MobileNavLink 
+                href="#contact" 
+                isActive={activeSection === 'contact'}
+                onClick={() => {
+                  scrollToSection('contact');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Contact
+              </MobileNavLink>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }
@@ -244,7 +249,7 @@ function MobileNavLink({
   return (
     <button
       onClick={onClick}
-      className={`block w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 ${
+      className={`block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-all duration-300 ${
         isActive
           ? 'text-primary bg-primary/10'
           : 'text-muted-foreground hover:text-primary hover:bg-primary/5'

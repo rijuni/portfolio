@@ -18,14 +18,14 @@ export default function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="lg:ml-[-2rem]"
+            className="lg:ml-[-2rem] text-center lg:text-left"
           >
             <h1 className="text-4xl md:text-5xl font-normal italic mb-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-[#ff6b00] block mb-2 font-mono text-5xl md:text-6xl"
+                className="text-[#ff6b00] block mb-2 font-mono text-4xl sm:text-5xl md:text-6xl"
               >
                 <span className="text-[#ff6b00]">&gt;</span>
                 <span className="ml-2">Hello,</span>
@@ -34,7 +34,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-[#ff6b00] block mb-4 text-5xl md:text-6xl"
+                className="text-[#ff6b00] block mb-4 text-4xl sm:text-5xl md:text-6xl"
               >
                 I'm Amlan Nanda
               </motion.span>
@@ -42,7 +42,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="text-[#ffffff] block text-2xl md:text-3xl"
+                className="text-[#ffffff] block text-xl sm:text-2xl md:text-3xl"
               >
                 <TypeAnimation
                   sequence={[
@@ -59,13 +59,13 @@ export default function Hero() {
                 />
               </motion.span>
             </h1>
-            <p className="text-[#a3a3a3] text-lg mb-8">
+            <p className="text-[#a3a3a3] text-base sm:text-lg mb-8">
               Building smart solutions that can think, learn and evolve.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
               <Link
                 href="#contact"
-                className="btn-primary bg-[#ff6b00]/20 hover:bg-[#ff6b00]/30 text-[#ff6b00] border border-[#ff6b00]/30 relative group transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,107,0,0.3)] hover:scale-105"
+                className="btn-primary bg-[#ff6b00]/20 hover:bg-[#ff6b00]/30 text-[#ff6b00] border border-[#ff6b00]/30 relative group transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,107,0,0.3)] hover:scale-105 px-6 py-3 rounded-md"
               >
                 <span className="relative z-10">Contact Me</span>
                 <div className="absolute inset-0 bg-[#ff6b00]/10 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -74,7 +74,7 @@ export default function Hero() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary bg-[#ff6b00]/20 hover:bg-[#ff6b00]/30 text-[#ff6b00] border border-[#ff6b00]/30 relative group transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,107,0,0.3)] hover:scale-105"
+                className="btn-secondary bg-[#ff6b00]/20 hover:bg-[#ff6b00]/30 text-[#ff6b00] border border-[#ff6b00]/30 relative group transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,107,0,0.3)] hover:scale-105 px-6 py-3 rounded-md"
               >
                 <span className="relative z-10">Resume</span>
                 <div className="absolute inset-0 bg-[#ff6b00]/10 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -87,9 +87,9 @@ export default function Hero() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative flex justify-end"
+            className="relative flex justify-center lg:justify-end"
           >
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-96 md:h-96">
               {/* Enhanced glow effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b00] to-[#ff8533] rounded-full blur-3xl opacity-30 animate-pulse" />
               <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b00] to-[#ff8533] rounded-full blur-xl opacity-20 animate-pulse" />
@@ -102,8 +102,9 @@ export default function Hero() {
                     src="/images/profile.jpg"
                     alt="Amlan Nanda"
                     fill
-                    sizes="(max-width: 768px) 288px, 384px"
-                    className="rounded-full object-cover transition-all duration-500 ease-in-out group-hover:grayscale"
+                    style={{ objectFit: 'cover' }}
+                    sizes="(max-width: 640px) 256px, (max-width: 768px) 288px, 384px"
+                    className="rounded-full transition-all duration-500 ease-in-out group-hover:grayscale"
                     priority
                     onError={(e) => {
                       console.error('Error loading image:', e);

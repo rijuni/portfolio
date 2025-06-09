@@ -16,7 +16,7 @@ export default function About() {
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
 
   return (
-    <section id="about" className="py-24 bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a] relative overflow-hidden" ref={containerRef}>
+    <section id="about" className="py-16 sm:py-24 bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a] relative overflow-hidden" ref={containerRef}>
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
@@ -32,9 +32,9 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           style={{ y, opacity, scale }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl font-bold text-[#ffffff] mb-4 font-mono">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#ffffff] mb-4 font-mono">
             <span className="text-[#ff6b00]">&lt;</span>
             About Me
             <span className="text-[#ff6b00]">/&gt;</span>
@@ -42,15 +42,15 @@ export default function About() {
           <p className="text-[#a3a3a3] font-mono">Get to know me better</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative"
+            className="relative flex-1"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b00]/40 to-[#ff8533]/30 rounded-lg blur-xl group-hover:blur-2xl transition-all duration-300" />
-            <div className="relative bg-[#1a1a1a] rounded-lg p-8 border border-[#ff6b00]/30 overflow-hidden">
+            <div className="relative bg-[#1a1a1a] rounded-lg p-6 sm:p-8 border border-[#ff6b00]/30 overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#ff6b00]/15 rounded-full blur-3xl transform translate-x-16 -translate-y-16" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#ff6b00]/15 rounded-full blur-3xl transform -translate-x-16 translate-y-16" />
               
@@ -63,17 +63,18 @@ export default function About() {
               
               <div className="relative z-10 mt-8">
                 {/* Profile Photo */}
-                <div className="flex items-center gap-6 mb-8">
-                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-[#ff6b00]/20">
+                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-8">
+                  <div className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-[#ff6b00]/20">
                     <Image
                       src="/images/about-profile.jpg"
                       alt="Amlan Nanda"
                       fill
-                      className="object-cover hover:scale-110 transition-transform duration-300"
+                      style={{ objectFit: 'cover' }}
+                      className="hover:scale-110 transition-transform duration-300"
                     />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-[#ffffff] font-mono">Amlan Nanda</h3>
+                  <div className="text-center sm:text-left">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#ffffff] font-mono">Amlan Nanda</h3>
                     <div className="text-[#ff6b00] font-mono">
                       <p>AI/ML Developer Expert</p>
                     </div>
@@ -98,7 +99,7 @@ export default function About() {
                     wrapper="p"
                     speed={50}
                     repeat={Infinity}
-                    className="min-h-[60px]"
+                    className="min-h-[60px] text-sm sm:text-base"
                   />
                 </div>
 
@@ -108,7 +109,7 @@ export default function About() {
                     <span className="text-[#ff6b00]">$</span> cat experience.txt
                   </div>
                   <div className="border-l-2 border-[#ff6b00] pl-4">
-                    <div className="text-[#ff6b00] font-mono">
+                    <div className="text-[#ff6b00] font-mono text-sm sm:text-base">
                       <TypeAnimation
                         sequence={[
                           "Junior Software Developer at Kalinga Institute of Medical Science Jan 2025-Present",
@@ -133,7 +134,7 @@ export default function About() {
                         repeat={Infinity}
                       />
                     </div>
-                    <div className="text-[#ffffff] font-mono mt-2">
+                    <div className="text-[#ffffff] font-mono mt-2 text-sm sm:text-base">
                       <TypeAnimation
                         sequence={[
                           "",
@@ -170,7 +171,7 @@ export default function About() {
                   </div>
                   <div className="space-y-4">
                     <div className="border-l-2 border-[#ff6b00] pl-4">
-                      <h4 className="text-[#ffffff] font-mono">
+                      <h4 className="text-[#ffffff] font-mono text-sm sm:text-base">
                         <TypeAnimation
                           sequence={[
                             "B.Tech in Computer Science and Engineering(2020-2024)",
@@ -186,7 +187,7 @@ export default function About() {
                     </div>
 
                     <div className="border-l-2 border-[#ff6b00] pl-4">
-                      <h4 className="text-[#ffffff] font-mono">
+                      <h4 className="text-[#ffffff] font-mono text-sm sm:text-base">
                         <TypeAnimation
                           sequence={[
                             "Higher Secondary Certificate(2018-2020)",
@@ -202,7 +203,7 @@ export default function About() {
                     </div>
 
                     <div className="border-l-2 border-[#ff6b00] pl-4">
-                      <h4 className="text-[#ffffff] font-mono">
+                      <h4 className="text-[#ffffff] font-mono text-sm sm:text-base">
                         <TypeAnimation
                           sequence={[
                             "Secondary School Certificate(2017-2018)",
@@ -226,14 +227,14 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-8"
+            className="flex-1 mt-8 lg:mt-0"
           >
             {/* Right Side Developer Design with Glow and Complex Code */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="relative w-full h-[500px] flex items-center justify-center"
+              className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] flex items-center justify-center"
             >
               {/* Animated Background Orbs */}
               <div className="absolute inset-0 pointer-events-none">
@@ -241,13 +242,13 @@ export default function About() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 0.25, scale: 1.1 }}
                   transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-                  className="absolute top-0 right-0 w-40 h-40 bg-[#ff6b00] rounded-full blur-3xl transform translate-x-20 -translate-y-20"
+                  className="absolute top-0 right-0 w-32 sm:w-40 h-32 sm:h-40 bg-[#ff6b00] rounded-full blur-3xl transform translate-x-16 -translate-y-16"
                 />
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 0.25, scale: 1.1 }}
                   transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", delay: 1.5 }}
-                  className="absolute bottom-0 left-0 w-40 h-40 bg-[#ff6b00] rounded-full blur-3xl transform -translate-x-20 translate-y-20"
+                  className="absolute bottom-0 left-0 w-32 sm:w-40 h-32 sm:h-40 bg-[#ff6b00] rounded-full blur-3xl transform -translate-x-16 translate-y-16"
                 />
               </div>
 
@@ -258,12 +259,12 @@ export default function About() {
                   initial={{ scale: 0, rotate: -180 }}
                   animate={{ scale: 1, rotate: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="w-64 h-64 rounded-full border-2 border-dashed border-[#ff6b00]/30 shadow-[0_0_35px_rgba(255,107,0,0.25)] flex items-center justify-center relative flex-shrink-0 backdrop-blur-sm bg-[#1a1a1a]/10"
+                  className="w-48 h-48 sm:w-64 sm:h-64 rounded-full border-2 border-dashed border-[#ff6b00]/30 shadow-[0_0_35px_rgba(255,107,0,0.25)] flex items-center justify-center relative flex-shrink-0 backdrop-blur-sm bg-[#1a1a1a]/10"
                 >
                   {/* Content inside circle - more complex code fragment */}
                   <div className="text-[#ff6b00]/80 font-mono text-center">
-                    <p className="text-base">class TransformerModel:</p>
-                    <p className="text-sm">  def __init__(self, ...):</p>
+                    <p className="text-sm sm:text-base">class TransformerModel:</p>
+                    <p className="text-xs sm:text-sm">  def __init__(self, ...):</p>
                     <p className="text-xs">    # Attention mechanisms</p>
                     <p className="text-xs">    ...</p>
                   </div>
@@ -274,7 +275,7 @@ export default function About() {
                   <div className="font-mono text-[#a3a3a3] mb-4">
                     <span className="text-[#ff6b00]">$</span> train_model.py
                   </div>
-                  <div className="text-[#a3a3a3] font-mono text-sm whitespace-pre-wrap h-[300px] overflow-hidden backdrop-blur-sm bg-[#1a1a1a]/20 rounded-lg p-4">
+                  <div className="text-[#a3a3a3] font-mono text-xs sm:text-sm whitespace-pre-wrap h-[200px] sm:h-[300px] overflow-hidden backdrop-blur-sm bg-[#1a1a1a]/20 rounded-lg p-4">
                     <TypeAnimation
                       sequence={[
                         "import tensorflow as tf\nfrom tensorflow.keras import layers\n\ndef build_transformer_model(...):\n  # Input layer\n  inputs = tf.keras.Input(shape=(...))\n\n  # Transformer blocks\n  x = layers.MultiHeadAttention(...)(...)\n  x = layers.Dropout(...)(x)\n  # ... more layers ...\n\n  # Output layer\n  outputs = layers.Dense(...)(...)\n\n  model = tf.keras.Model(inputs=inputs, outputs=outputs)\n  return model",
